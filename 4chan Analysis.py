@@ -11,14 +11,14 @@ sentiment_value = 0
 for thread in allthreads:
     blob = TextBlob(thread.topic.text_comment.lower())
 
-    comment_sentiment = blob.sentiment.polarity
+    comment_sentiment = blob.sentiment.polarity  # Looks like this line does literally all the work, how does it work?
 
     sentiment_value += comment_sentiment
 
     num_comments += 1
 
 print('/r/' + "BIZ")
-try:
+try:  # I wonder if try catch is better to use than "if num_comments > 0"
     print('Ratio:' + str(math.floor(sentiment_value/num_comments*100)) + "\n")
 except:
     print("No comment sentiment." + "\n")
