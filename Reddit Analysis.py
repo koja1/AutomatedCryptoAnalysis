@@ -22,6 +22,8 @@ def testModule(Subreddit_Name):
     for submission in sub_submissions:
         if not submission.stickied:
             submission.comments.replace_more(limit=0)  # Why do we need to remove all MoreComments instances?
+            
+            # We don't need to remove more comments we need to add in more comments
             for comment in submission.comments.list():
                 blob = TextBlob(comment.body)
 
